@@ -7,6 +7,9 @@ struct Node{
     Node* next;
     
 };
+
+//Function display linkedlist
+
 void print_fun(Node* head){
 	Node *temp=head;
 	while(temp->next){
@@ -14,6 +17,18 @@ void print_fun(Node* head){
 		temp=temp->next;
 	}
 	cout<<temp->data;
+}
+
+//Find middle of an Linked List
+
+Node* middle_pointer(Node* head){
+	Node* slow=head;
+	Node* fast=head;
+	while(slow->next and fast->next and fast->next->next){
+		slow=slow->next;
+		fast=fast->next->next;
+	}
+	return slow;
 }
 int main() {
     //creat the pointer 
@@ -36,7 +51,7 @@ int main() {
 	
 	print_fun(head);
 	
-	
+	cout<<(middile_pointer(head))->data;
 	
 	
 	return 0;
